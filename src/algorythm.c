@@ -6,7 +6,7 @@
 /*   By: dkocob <dkocob@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/05 17:10:10 by dkocob        #+#    #+#                 */
-/*   Updated: 2021/10/19 20:26:02 by dkocob        ########   odam.nl         */
+/*   Updated: 2021/10/21 22:34:54 by dkocob        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ int push_toa_lim(struct s_data* data, int gap)
 		{
 			if (dcn < 0)
 				rrb(data);
-			if (dcn > 0)
+			else if (dcn > 0)
 				rb(data);
 		}
 		if (cnt >= gap)

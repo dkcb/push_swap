@@ -6,15 +6,44 @@
 /*   By: dkocob <dkocob@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/19 18:11:37 by dkocob        #+#    #+#                 */
-/*   Updated: 2021/10/21 20:21:37 by dkocob        ########   odam.nl         */
+/*   Updated: 2021/10/22 16:44:20 by dkocob        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+#include <stdio.h>
 
-int	error(void)
+int	ft_exit(struct s_data *data, int fl)
 {
-	ft_putstring("Error\n");
+	struct s_node	*n;
+	void *p;
+
+	p = data->heada;
+	while (data->heada)
+	{
+		n = data->heada->next;
+		if (n != p)
+			free (data->heada);
+		else
+			break ;
+		data->heada = n;
+	}
+	p = data->headb;
+	while (data->headb)
+	{
+		n = data->headb->next;
+		if (n != p)
+			free (data->headb);
+		else
+			break ;
+		data->headb = n;
+	}
+	if (data->intlist)
+		free(data->intlist);
+	if (data->sorted)
+		free(data->sorted);
+	if (fl < 0)
+		ft_putstring("Error\n");
 	return (0);
 }
 
@@ -44,15 +73,5 @@ int	check_input(struct s_data *data)
 		}
 		i--;
 	}
-	return (0);
-}
-
-int	ft_putstring(char *s)
-{
-	int	i = 0;
-
-	while (s[i] && s[i] != '\0')
-		i++;
-	write(1,&s[0], i);
 	return (0);
 }

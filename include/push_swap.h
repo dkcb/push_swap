@@ -6,7 +6,7 @@
 /*   By: dkocob <dkocob@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/29 18:25:55 by dkocob        #+#    #+#                 */
-/*   Updated: 2021/10/21 21:37:50 by dkocob        ########   odam.nl         */
+/*   Updated: 2021/10/22 15:48:11 by dkocob        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h> //delete
 
 struct s_node
 {
@@ -59,9 +58,9 @@ void rrr(struct s_data *data);
 struct s_node *cut (struct s_node **head, int pos);
 struct s_node *paste (struct s_node **head, struct s_node *node, int pos);
 int		ft_isdigit(char c);
-int		ft_putstring(char *s);
+void	ft_putstring(char *s);
 int		check_input(struct s_data *data);
-int		error(void);
+int		ft_exit(struct s_data *data, int fl);
 int		distance(struct s_node *head, int index);
 int		distance_range(struct s_node *head, int min, int max);
 int		sorted_int(struct s_data* data);

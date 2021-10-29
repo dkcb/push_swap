@@ -6,7 +6,7 @@
 /*   By: dkocob <dkocob@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/05 17:10:10 by dkocob        #+#    #+#                 */
-/*   Updated: 2021/10/21 21:34:24 by dkocob        ########   odam.nl         */
+/*   Updated: 2021/10/22 15:14:07 by dkocob        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ int distance_range(struct s_node *head, int min, int max)
 {
 	int	cd;
 	int	i = 0;
-	int	maxdistr = 2147483647;
-	int	maxdistrr = -2147483648;
+	int	maxdistr = 2147483645;
+	int	maxdistrr = -2147483645;
 
 	while (i + min < max)
 	{
@@ -88,8 +88,8 @@ int sorted_int(struct s_data *data)
 
 	i = 0;
 
-	intlist = malloc(sizeof(int) * data->argc - 1);
-	sintlist = malloc(sizeof(int) * data->argc - 1);
+	intlist = malloc(sizeof(int) * data->argc);
+	sintlist = malloc(sizeof(int) * data->argc);
 	if(!sintlist || !intlist)
 		return (-1);
 	while (i < data->argc - 1)

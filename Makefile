@@ -1,12 +1,14 @@
 NAME = 		push_swap
 SRC = 		push_swap.c \
-		algorythm.c \
-		ft_digits_ft.c \
-		operations.c
+			algorythm.c \
+			ft_digits_ft.c \
+			operations.c \
+			stack.c \
+			service.c
 SRC_DIR =	src
 OBJ_DIR	= 	$(SRC_DIR)/obj
 INCL = 		-I$(SRC_DIR)/include
-C_FLAGS = 	-g -fsanitize=address -Wall -Wextra -Werror
+C_FLAGS = 	-g #-fsanitize=address -Wall -Wextra -Werror
 OBJ = 		$(SRC:%.c=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
