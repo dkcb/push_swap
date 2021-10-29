@@ -6,7 +6,7 @@
 /*   By: dkocob <dkocob@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/29 18:25:55 by dkocob        #+#    #+#                 */
-/*   Updated: 2021/10/29 21:52:18 by dkocob        ########   odam.nl         */
+/*   Updated: 2021/10/29 22:21:35 by dkocob        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ struct s_d
 	int				argc;
 	int				*intlist;
 	int				*sorted;
-	char			**argv;
+	char			**a;
 	struct s_node	*ha;
 	struct s_node	*hb;
 };
@@ -46,20 +46,20 @@ void			rr(struct s_d *d);
 void			rra(struct s_d *d);
 void			rrb(struct s_d *d);
 void			rrr(struct s_d *d);
-struct s_node	*cut (struct s_node **head, int pos);
-struct s_node	*paste (struct s_node **head, struct s_node *node, int pos);
+struct s_node	*cut(struct s_node **head, int pos);
+struct s_node	*paste(struct s_node **head, struct s_node *node, int pos);
 int				ft_isdigit(char c);
 void			ft_putstring(char *s);
-int				check_input(struct s_d *d);
+int				check_input(struct s_d *d, int i, int i2);
 int				ft_exit(struct s_d *d, int fl);
 int				distance(struct s_node *head, int index);
 int				distance_range(struct s_node *head, int min, int max);
-int				sorted_int(struct s_d* d);
-int				sort(struct s_d* d);
+int				sorted_int(struct s_d *d);
+int				sort(struct s_d *d);
 int				size_stack(struct s_node **head);
 int				ordered(struct s_node *n);
 void			printlist(struct s_d *d);
 int				get_arg_stack(struct s_d *d);
-long long		get_val(char *s);
+long long		val(char *s);
 
 #endif

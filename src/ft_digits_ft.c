@@ -6,22 +6,22 @@
 /*   By: dkocob <dkocob@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/21 20:46:31 by dkocob        #+#    #+#                 */
-/*   Updated: 2021/10/21 20:37:45 by dkocob        ########   odam.nl         */
+/*   Updated: 2021/10/29 22:12:35 by dkocob        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	ft_isdigit (char c)
+int	ft_isdigit(char c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
 }
 
-long long	get_val(char *s)
+long long	val(char *s)
 {
-	int		i;
+	int			i;
 	long long	pwr;
 	long long	res;
 	long long	neg;
@@ -44,8 +44,5 @@ long long	get_val(char *s)
 		pwr = pwr * 10;
 		i--;
 	}
-	// printf ("RES:%d\n", res);
-	// if (res > 2147483647)
-	// 	return (0);
 	return (res * neg);
 }
