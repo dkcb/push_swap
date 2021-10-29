@@ -6,7 +6,7 @@
 /*   By: dkocob <dkocob@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/05 17:10:10 by dkocob        #+#    #+#                 */
-/*   Updated: 2021/10/22 15:14:07 by dkocob        ########   odam.nl         */
+/*   Updated: 2021/10/29 21:53:02 by dkocob        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,18 @@ int distance(struct s_node *head, int index)
 	if (head)
 	{
 		n = head;
-		while (n->index != index && r <= size)
+		while (n->i != index && r <= size)
 		{
-			n = n->next;
+			n = n->nx;
 			r++;
 		}
 	}
 	if (head)
 	{
 		n = head;
-		while (n->index != index && rr <= r && rr <= size)
+		while (n->i != index && rr <= r && rr <= size)
 		{
-			n = n->prev;
+			n = n->pr;
 			rr++;
 		}
 	}
@@ -65,21 +65,21 @@ int distance_range(struct s_node *head, int min, int max)
 	return (maxdistrr);
 }
 
-int	get_index(struct s_data *data, int num)
+int	get_index(struct s_d *d, int num)
 {
 	int i;
 
 	i = 0;
-	while(i < data->argc - 1)
+	while(i < d->argc - 1)
 	{
-		if (data->sorted[i] == num)
+		if (d->sorted[i] == num)
 			return (i);
 		i++;
 	}
 	return (-1);
 }
 
-int sorted_int(struct s_data *data)
+int sorted_int(struct s_d *d)
 {
 	int *intlist;
 	int *sintlist;
@@ -88,23 +88,23 @@ int sorted_int(struct s_data *data)
 
 	i = 0;
 
-	intlist = malloc(sizeof(int) * data->argc);
-	sintlist = malloc(sizeof(int) * data->argc);
+	intlist = malloc(sizeof(int) * d->argc);
+	sintlist = malloc(sizeof(int) * d->argc);
 	if(!sintlist || !intlist)
 		return (-1);
-	while (i < data->argc - 1)
+	while (i < d->argc - 1)
 	{
-		if (get_val(data->argv[i + 1]) > 2147483647 || get_val(data->argv[i + 1]) < -2147483648)
+		if (get_val(d->argv[i + 1]) > 2147483647 || get_val(d->argv[i + 1]) < -2147483648)
 			return (-1);
-		intlist[i] = (int)get_val(data->argv[i + 1]);
+		intlist[i] = (int)get_val(d->argv[i + 1]);
 		sintlist[i] = intlist[i];
 		i++;
 	}
-	data->intlist = intlist;
+	d->intlist = intlist;
 	i = 0;
-	while (i < data->argc - 1)
+	while (i < d->argc - 1)
 	{
-		if ((sintlist[i] > sintlist[i + 1]) && i < data->argc - 2)
+		if ((sintlist[i] > sintlist[i + 1]) && i < d->argc - 2)
 		{
 			tmp = sintlist[i];
 			sintlist[i] = sintlist[i + 1];
@@ -113,11 +113,11 @@ int sorted_int(struct s_data *data)
 		}
 		i++;
 	}
-	data->sorted = sintlist;
+	d->sorted = sintlist;
 	return (0);
 }
 
-int get_arg_stack(struct s_data *data)
+int get_arg_stack(struct s_d *d)
 {
 	int i = 0;
 	struct	s_node *previous;
@@ -125,25 +125,23 @@ int get_arg_stack(struct s_data *data)
 	struct	s_node *next;
 
 	current = (struct s_node *)malloc(sizeof(struct s_node));
-	while (i < data->argc - 1)
+	while (i < d->argc - 1)
 	{
 		next = (struct s_node *)malloc(sizeof(struct s_node));
-		current->next = next;
-		current->prev = previous;
-		current->data = data->intlist[i];
-		current->index = get_index(data, current->data);
+		current->nx = next;
+		current->pr = previous;
+		current->data = d->intlist[i];
+		current->i = get_index(d, current->data);
 		previous = current;
 		if (i == 0)
-			data->heada = current;
+			d->ha = current;
 		current = next;
 		i++;
 	}
-	data->size_a = data->argc;
-	data->size_b = 0;
 	free (current);
-	data->headb = NULL;
-	previous->next = data->heada;
-	data->heada->prev = previous;
+	d->hb = NULL;
+	previous->nx = d->ha;
+	d->ha->pr = previous;
 	return (i);
 }
 
@@ -158,14 +156,14 @@ struct s_node *cut (struct s_node **head, int pos)
 		return (current);
 	}
 	if (pos == 0)
-		head[0] = head[0]->next;
+		head[0] = head[0]->nx;
 	while (pos > 0)
 	{
-		current = current->next;
+		current = current->nx;
 		pos--;
 	}
-	current->next->prev = current->prev;
-	current->prev->next = current->next;
+	current->nx->pr = current->pr;
+	current->pr->nx = current->nx;
 	return (current);
 }
 
@@ -173,18 +171,18 @@ struct s_node *paste (struct s_node **head, struct s_node *node, int pos)
 {
 	struct s_node *current;
 
-	current = head[0]->prev;
+	current = head[0]->pr;
 	if (pos == 0)
 		head[0] = node;
 	while (pos > 0)
 	{
-		current = current->next;
+		current = current->nx;
 		pos--;
 	}
-	current->next->prev = node;
-	node->next = current->next;
-	current->next = node;
-	node->prev = current;
+	current->nx->pr = node;
+	node->nx = current->nx;
+	current->nx = node;
+	node->pr = current;
 	return (current);
 }
 
@@ -197,9 +195,9 @@ int	size_stack(struct s_node **head)
 		return (0);
 	i = 1;
 	current = head[0];
-	while (current->next != head[0])
+	while (current->nx != head[0])
 	{
-		current = current->next;
+		current = current->nx;
 		i++;
 	}
 	return (i);
@@ -212,13 +210,13 @@ int	ordered(struct s_node *head)
 	if (head)
 	{
 		n = head;
-		if (n->data > n->next->data)
+		if (n->data > n->nx->data)
 			return (0);
-		while (n->next != head)
+		while (n->nx != head)
 		{
-			if (n->data > n->next->data)
+			if (n->data > n->nx->data)
 				return (0);
-			n = n->next;
+			n = n->nx;
 		}
 	}
 	return (1);

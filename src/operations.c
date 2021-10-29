@@ -6,122 +6,122 @@
 /*   By: dkocob <dkocob@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/29 18:25:33 by dkocob        #+#    #+#                 */
-/*   Updated: 2021/10/21 18:29:41 by dkocob        ########   odam.nl         */
+/*   Updated: 2021/10/29 21:52:18 by dkocob        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void sa(struct s_data *data)
+void sa(struct s_d *d)
 {
-	if (size_stack(&data->heada) > 1)
+	if (size_stack(&d->ha) > 1)
 	{
 		ft_putstring("sa\n");
-		paste(&data->heada, cut(&data->heada, 0), 1);
+		paste(&d->ha, cut(&d->ha, 0), 1);
 	}
 }
 
-void sb(struct s_data *data)
+void sb(struct s_d *d)
 {
 		
-	if (size_stack(&data->headb) > 1)
+	if (size_stack(&d->hb) > 1)
 	{
 		ft_putstring("sb\n");
-		paste(&data->headb, cut(&data->headb, 0), 1);
+		paste(&d->hb, cut(&d->hb, 0), 1);
 	}
 }
 
-void ss(struct s_data *data)
+void ss(struct s_d *d)
 {
 	ft_putstring("ss\n");
-	if (size_stack(&data->heada) > 1)
-		paste(&data->heada, cut(&data->heada, 0), 1);
-	if (size_stack(&data->headb) > 1)
-		paste(&data->headb, cut(&data->headb, 0), 1);
+	if (size_stack(&d->ha) > 1)
+		paste(&d->ha, cut(&d->ha, 0), 1);
+	if (size_stack(&d->hb) > 1)
+		paste(&d->hb, cut(&d->hb, 0), 1);
 }
 
-void pa(struct s_data *data)
+void pa(struct s_d *d)
 {
 	struct s_node *tmp;
 
 	ft_putstring("pa\n");
-	if (data->headb)
+	if (d->hb)
 	{
-		tmp = cut(&data->headb, 0);
-		if (data->heada == NULL)
+		tmp = cut(&d->hb, 0);
+		if (d->ha == NULL)
 		{
-			tmp->next = tmp;
-			tmp->prev = tmp;
-			data->heada = tmp;
+			tmp->nx = tmp;
+			tmp->pr = tmp;
+			d->ha = tmp;
 			return ;
 		}
-		paste(&data->heada, tmp, 0);
+		paste(&d->ha, tmp, 0);
 	}
 }
 
-void pb(struct s_data *data)
+void pb(struct s_d *d)
 {
 	struct s_node *tmp;
 
 	ft_putstring("pb\n");
-	if (data->heada)
+	if (d->ha)
 	{
-		tmp = cut(&data->heada, 0);
-		if (data->headb == NULL)
+		tmp = cut(&d->ha, 0);
+		if (d->hb == NULL)
 		{
-			tmp->next = tmp;
-			tmp->prev = tmp;
-			data->headb = tmp;
+			tmp->nx = tmp;
+			tmp->pr = tmp;
+			d->hb = tmp;
 			return ;
 		}
-		paste(&data->headb, tmp, 0);
+		paste(&d->hb, tmp, 0);
 	}
 }
 
-void ra(struct s_data *data)
+void ra(struct s_d *d)
 {
 	ft_putstring("ra\n");
-	if (data->heada)
-		data->heada = data->heada->next;
+	if (d->ha)
+		d->ha = d->ha->nx;
 }
 
-void rb(struct s_data *data)
+void rb(struct s_d *d)
 {
 	ft_putstring("rb\n");
-	if (data->headb)
-		data->headb = data->headb->next;
+	if (d->hb)
+		d->hb = d->hb->nx;
 }
 
-void rr(struct s_data *data)
+void rr(struct s_d *d)
 {
 	ft_putstring("rr\n");
-	if (data->heada)
-		data->heada = data->heada->next;
-	if (data->headb)
-		data->headb = data->headb->next;
+	if (d->ha)
+		d->ha = d->ha->nx;
+	if (d->hb)
+		d->hb = d->hb->nx;
 }
 
-void rra(struct s_data *data)
+void rra(struct s_d *d)
 {
 	ft_putstring("rra\n");
-	if (data->heada)
-		data->heada = data->heada->prev;
+	if (d->ha)
+		d->ha = d->ha->pr;
 }
 
-void rrb(struct s_data *data)
+void rrb(struct s_d *d)
 {
 	ft_putstring("rrb\n");
-	if (data->headb)
-		data->headb = data->headb->prev;
+	if (d->hb)
+		d->hb = d->hb->pr;
 }
 
-void rrr(struct s_data *data)
+void rrr(struct s_d *d)
 {
 	ft_putstring("rrr\n");
-	if (data->heada)
-		data->heada = data->heada->prev;
-	if (data->headb)
-		data->headb = data->headb->prev;
+	if (d->ha)
+		d->ha = d->ha->pr;
+	if (d->hb)
+		d->hb = d->hb->pr;
 }
 
 // int a = 5; // an integer, contains value

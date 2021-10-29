@@ -6,57 +6,57 @@
 /*   By: dkocob <dkocob@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/19 18:11:37 by dkocob        #+#    #+#                 */
-/*   Updated: 2021/10/22 16:44:20 by dkocob        ########   odam.nl         */
+/*   Updated: 2021/10/29 21:52:18 by dkocob        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 #include <stdio.h>
 
-int	ft_exit(struct s_data *data, int fl)
+int	ft_exit(struct s_d *d, int fl)
 {
 	struct s_node	*n;
 	void *p;
 
-	p = data->heada;
-	while (data->heada)
+	p = d->ha;
+	while (d->ha)
 	{
-		n = data->heada->next;
+		n = d->ha->nx;
 		if (n != p)
-			free (data->heada);
+			free (d->ha);
 		else
 			break ;
-		data->heada = n;
+		d->ha = n;
 	}
-	p = data->headb;
-	while (data->headb)
+	p = d->hb;
+	while (d->hb)
 	{
-		n = data->headb->next;
+		n = d->hb->nx;
 		if (n != p)
-			free (data->headb);
+			free (d->hb);
 		else
 			break ;
-		data->headb = n;
+		d->hb = n;
 	}
-	if (data->intlist)
-		free(data->intlist);
-	if (data->sorted)
-		free(data->sorted);
+	if (d->intlist)
+		free(d->intlist);
+	if (d->sorted)
+		free(d->sorted);
 	if (fl < 0)
 		ft_putstring("Error\n");
 	return (0);
 }
 
-int	check_input(struct s_data *data)
+int	check_input(struct s_d *d)
 {
 	int	i;
 	int	i2;
 
 	i = 1;
 	i2 = 0;
-	while (i < data->argc)
+	while (i < d->argc)
 	{
-		if (data->sorted[i] == data->sorted[i - 1])
+		if (d->sorted[i] == d->sorted[i - 1])
 			return (-1);
 		i++;
 	}
@@ -64,10 +64,10 @@ int	check_input(struct s_data *data)
 	while (i > 0)
 	{
 		i2 = 0;
-		while (data->argv[i][i2] != '\0')
+		while (d->argv[i][i2] != '\0')
 		{
-			if ((!ft_isdigit(data->argv[i][i2]) && data->argv[i][i2] != ' ' && data->argv[i][i2] != '-') 
-				|| (data->argv[i][i2] == '-' && !ft_isdigit(data->argv[i][i2 + 1])))
+			if ((!ft_isdigit(d->argv[i][i2]) && d->argv[i][i2] != ' ' && d->argv[i][i2] != '-') 
+				|| (d->argv[i][i2] == '-' && !ft_isdigit(d->argv[i][i2 + 1])))
 				return (-1);
 			i2++;
 		}
