@@ -6,7 +6,7 @@
 /*   By: dkocob <dkocob@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/29 18:25:55 by dkocob        #+#    #+#                 */
-/*   Updated: 2021/10/29 22:21:35 by dkocob        ########   odam.nl         */
+/*   Updated: 2021/10/30 20:43:57 by dkocob        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ struct s_node
 
 struct s_d
 {
+	void			(*fun_ptr_arr[11])(struct s_d *d);
 	int				argc;
 	int				*intlist;
 	int				*sorted;
@@ -46,8 +47,6 @@ void			rr(struct s_d *d);
 void			rra(struct s_d *d);
 void			rrb(struct s_d *d);
 void			rrr(struct s_d *d);
-struct s_node	*cut(struct s_node **head, int pos);
-struct s_node	*paste(struct s_node **head, struct s_node *node, int pos);
 int				ft_isdigit(char c);
 void			ft_putstring(char *s);
 int				check_input(struct s_d *d, int i, int i2);
@@ -60,6 +59,8 @@ int				size_stack(struct s_node **head);
 int				ordered(struct s_node *n);
 void			printlist(struct s_d *d);
 int				get_arg_stack(struct s_d *d);
-long long		val(char *s);
+long			val(char *s);
+struct s_node	*cut(struct s_node **head, int pos);
+struct s_node	*paste(struct s_node **head, struct s_node *node, int pos);
 
 #endif

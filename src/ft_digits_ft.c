@@ -6,7 +6,7 @@
 /*   By: dkocob <dkocob@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/21 20:46:31 by dkocob        #+#    #+#                 */
-/*   Updated: 2021/10/29 22:12:35 by dkocob        ########   odam.nl         */
+/*   Updated: 2021/10/30 19:57:31 by dkocob        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int	ft_isdigit(char c)
 	return (0);
 }
 
-long long	val(char *s)
+long	val(char *s)
 {
 	int			i;
-	long long	pwr;
-	long long	res;
-	long long	neg;
+	long	pwr;
+	long	res;
+	long	neg;
 
 	neg = 1;
 	i = 0;

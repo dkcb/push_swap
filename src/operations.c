@@ -6,7 +6,7 @@
 /*   By: dkocob <dkocob@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/29 18:25:33 by dkocob        #+#    #+#                 */
-/*   Updated: 2021/10/29 22:11:51 by dkocob        ########   odam.nl         */
+/*   Updated: 2021/10/30 19:54:32 by dkocob        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,8 +122,3 @@ void	rrr(struct s_d *d)
 	if (d->hb)
 		d->hb = d->hb->pr;
 }
-
-// int a = 5; // an integer, contains value
-// int *p; // an integer pointer, contains address
-// p = &a; // &a means address of a
-// a = *p; // *p means value stored in that address, here 5
