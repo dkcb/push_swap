@@ -1,48 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_digits_ft.c                                     :+:    :+:            */
+/*   operations2.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: dkocob <dkocob@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/05/21 20:46:31 by dkocob        #+#    #+#                 */
-/*   Updated: 2021/10/30 21:25:35 by dkocob        ########   odam.nl         */
+/*   Created: 2021/05/29 18:25:33 by dkocob        #+#    #+#                 */
+/*   Updated: 2021/10/30 21:29:51 by dkocob        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	ft_isdigit(char c)
+void	ra(struct s_d *d)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	ft_putstring("ra\n");
+	if (d->ha)
+		d->ha = d->ha->nx;
 }
 
-long	val(char *s)
+void	rb(struct s_d *d)
 {
-	int		i;
-	long	pwr;
-	long	res;
-	long	neg;
+	ft_putstring("rb\n");
+	if (d->hb)
+		d->hb = d->hb->nx;
+}
 
-	neg = 1;
-	i = 0;
-	res = 0;
-	pwr = 1;
-	while (s[i] == '-')
-	{
-		neg = -1;
-		i++;
-	}
-	while (s[i] && ft_isdigit(s[i]))
-		i++;
-	i--;
-	while (s[i] && ft_isdigit(s[i]))
-	{
-		res = res + (s[i] - '0') * pwr;
-		pwr = pwr * 10;
-		i--;
-	}
-	return (res * neg);
+void	rr(struct s_d *d)
+{
+	ft_putstring("rr\n");
+	if (d->ha)
+		d->ha = d->ha->nx;
+	if (d->hb)
+		d->hb = d->hb->nx;
+}
+
+void	rra(struct s_d *d)
+{
+	ft_putstring("rra\n");
+	if (d->ha)
+		d->ha = d->ha->pr;
+}
+
+void	rrb(struct s_d *d)
+{
+	ft_putstring("rrb\n");
+	if (d->hb)
+		d->hb = d->hb->pr;
 }

@@ -6,7 +6,7 @@
 /*   By: dkocob <dkocob@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/02 18:14:57 by dkocob        #+#    #+#                 */
-/*   Updated: 2021/10/29 22:10:43 by dkocob        ########   odam.nl         */
+/*   Updated: 2021/10/30 21:05:02 by dkocob        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	main(int argc, char **argv)
 		return (ft_exit(&d, -1));
 	if (check_input(&d, 1, 0) < 0)
 		return (ft_exit(&d, -1));
+	assign(&d);
 	get_arg_stack(&d);
 	sort(&d);
 	ft_exit(&d, 1);

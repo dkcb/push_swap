@@ -6,12 +6,27 @@
 /*   By: dkocob <dkocob@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/19 18:11:37 by dkocob        #+#    #+#                 */
-/*   Updated: 2021/10/29 22:09:43 by dkocob        ########   odam.nl         */
+/*   Updated: 2021/10/30 21:23:59 by dkocob        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 #include <stdio.h>
+
+void	assign(struct s_d *d)
+{
+	d->fun_ptr_arr['s' + 'a'] = &sa;
+	d->fun_ptr_arr['s' + 'b'] = &sb;
+	d->fun_ptr_arr['s' + 's'] = &ss;
+	d->fun_ptr_arr['p' + 'a'] = &pb;
+	d->fun_ptr_arr['p' + 'b'] = &pb;
+	d->fun_ptr_arr['r' + 'a'] = &ra;
+	d->fun_ptr_arr['r' + 'b'] = &rb;
+	d->fun_ptr_arr['r' + 'r'] = &rr;
+	d->fun_ptr_arr['r' + 'r' + 'a'] = &rra;
+	d->fun_ptr_arr['r' + 'r' + 'b'] = &rrb;
+	d->fun_ptr_arr['r' + 'r' + 'r'] = &rrr;
+}
 
 int	ft_exit(struct s_d *d, int fl)
 {

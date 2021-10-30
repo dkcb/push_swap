@@ -6,7 +6,7 @@
 /*   By: dkocob <dkocob@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/29 18:25:55 by dkocob        #+#    #+#                 */
-/*   Updated: 2021/10/30 20:43:57 by dkocob        ########   odam.nl         */
+/*   Updated: 2021/10/30 21:04:16 by dkocob        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ struct s_node
 
 struct s_d
 {
-	void			(*fun_ptr_arr[11])(struct s_d *d);
+	void			(*fun_ptr_arr[1100])(struct s_d *d);
 	int				argc;
 	int				*intlist;
 	int				*sorted;
@@ -36,6 +36,7 @@ struct s_d
 	struct s_node	*hb;
 };
 
+void			assign(struct s_d *d);
 void			pa(struct s_d *d);
 void			pb(struct s_d *d);
 void			sa(struct s_d *d);

@@ -1,48 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_digits_ft.c                                     :+:    :+:            */
+/*   operations3.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: dkocob <dkocob@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/05/21 20:46:31 by dkocob        #+#    #+#                 */
-/*   Updated: 2021/10/30 21:25:35 by dkocob        ########   odam.nl         */
+/*   Created: 2021/05/29 18:25:33 by dkocob        #+#    #+#                 */
+/*   Updated: 2021/10/30 21:30:16 by dkocob        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	ft_isdigit(char c)
+void	rrr(struct s_d *d)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
-long	val(char *s)
-{
-	int		i;
-	long	pwr;
-	long	res;
-	long	neg;
-
-	neg = 1;
-	i = 0;
-	res = 0;
-	pwr = 1;
-	while (s[i] == '-')
-	{
-		neg = -1;
-		i++;
-	}
-	while (s[i] && ft_isdigit(s[i]))
-		i++;
-	i--;
-	while (s[i] && ft_isdigit(s[i]))
-	{
-		res = res + (s[i] - '0') * pwr;
-		pwr = pwr * 10;
-		i--;
-	}
-	return (res * neg);
+	ft_putstring("rrr\n");
+	if (d->ha)
+		d->ha = d->ha->pr;
+	if (d->hb)
+		d->hb = d->hb->pr;
 }
