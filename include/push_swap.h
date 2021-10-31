@@ -6,7 +6,7 @@
 /*   By: dkocob <dkocob@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/29 18:25:55 by dkocob        #+#    #+#                 */
-/*   Updated: 2021/10/30 21:04:16 by dkocob        ########   odam.nl         */
+/*   Updated: 2021/10/31 18:51:33 by dkocob        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ struct s_d
 	void			(*fun_ptr_arr[1100])(struct s_d *d);
 	int				argc;
 	int				*intlist;
-	int				*sorted;
+	int				*sintlist;
 	char			**a;
 	struct s_node	*ha;
 	struct s_node	*hb;
@@ -52,9 +52,10 @@ int				ft_isdigit(char c);
 void			ft_putstring(char *s);
 int				check_input(struct s_d *d, int i, int i2);
 int				ft_exit(struct s_d *d, int fl);
-int				distance(struct s_node *head, int index);
+int				distance(struct s_node *head, int index, int r, int rr);
 int				distance_range(struct s_node *head, int min, int max);
-int				sorted_int(struct s_d *d);
+int				sorted_int(struct s_d *d, int i, int tmp);
+int				unsorted_int(struct s_d *d, int i, int tmp);
 int				sort(struct s_d *d);
 int				size_stack(struct s_node **head);
 int				ordered(struct s_node *n);

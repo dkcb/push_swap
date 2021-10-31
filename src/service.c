@@ -6,7 +6,7 @@
 /*   By: dkocob <dkocob@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/19 18:11:37 by dkocob        #+#    #+#                 */
-/*   Updated: 2021/10/30 21:23:59 by dkocob        ########   odam.nl         */
+/*   Updated: 2021/10/31 18:49:49 by dkocob        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,32 +31,18 @@ void	assign(struct s_d *d)
 int	ft_exit(struct s_d *d, int fl)
 {
 	struct s_node	*n;
-	void			*p;
 
-	p = d->ha;
+	d->ha->pr->nx = NULL;
 	while (d->ha)
 	{
 		n = d->ha->nx;
-		if (n != p)
-			free (d->ha);
-		else
-			break ;
+		free (d->ha);
 		d->ha = n;
-	}
-	p = d->hb;
-	while (d->hb)
-	{
-		n = d->hb->nx;
-		if (n != p)
-			free (d->hb);
-		else
-			break ;
-		d->hb = n;
 	}
 	if (d->intlist)
 		free(d->intlist);
-	if (d->sorted)
-		free(d->sorted);
+	if (d->sintlist)
+		free(d->sintlist);
 	if (fl < 0)
 		ft_putstring("Error\n");
 	return (0);
@@ -66,7 +52,7 @@ int	check_input(struct s_d *d, int i, int i2)
 {
 	while (i < d->argc)
 	{
-		if (d->sorted[i] == d->sorted[i - 1])
+		if (d->sintlist[i] == d->sintlist[i - 1])
 			return (-1);
 		i++;
 	}

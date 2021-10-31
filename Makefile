@@ -3,7 +3,10 @@ SRC = 		push_swap.c \
 			algorythm.c \
 			ft_digits_ft.c \
 			operations.c \
+			operations2.c \
+			operations3.c \
 			stack.c \
+			stack2.c \
 			service.c
 SRC_DIR =	src
 OBJ_DIR	= 	$(SRC_DIR)/obj
