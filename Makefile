@@ -11,7 +11,7 @@ SRC = 		push_swap.c \
 SRC_DIR =	src
 OBJ_DIR	= 	$(SRC_DIR)/obj
 INCL = 		-I$(SRC_DIR)/include
-C_FLAGS = 	-g #-fsanitize=address -Wall -Wextra -Werror
+C_FLAGS = 	-g -Wall -Wextra -Werror #-fsanitize=address
 OBJ = 		$(SRC:%.c=$(OBJ_DIR)/%.o)
 
 all: $(NAME)

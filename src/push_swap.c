@@ -6,7 +6,7 @@
 /*   By: dkocob <dkocob@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/02 18:14:57 by dkocob        #+#    #+#                 */
-/*   Updated: 2021/10/31 18:53:22 by dkocob        ########   odam.nl         */
+/*   Updated: 2021/10/31 18:59:59 by dkocob        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 		return (1);
 	d.argc = argc;
 	d.a = argv;
-	if (unsorted_int(&d, 0, 0) < 0)
+	if (unsorted_int(&d, 0) < 0)
 		return (ft_exit(&d, -1));
 	if (sorted_int(&d, 0, 0) < 0)
 		return (ft_exit(&d, -1));

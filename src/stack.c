@@ -6,13 +6,13 @@
 /*   By: dkocob <dkocob@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/05 17:10:10 by dkocob        #+#    #+#                 */
-/*   Updated: 2021/10/31 18:57:11 by dkocob        ########   odam.nl         */
+/*   Updated: 2021/10/31 19:00:33 by dkocob        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	get_index(struct s_d *d, int num)
+static int	get_index(struct s_d *d, int num)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	get_index(struct s_d *d, int num)
 	return (-1);
 }
 
-int	unsorted_int(struct s_d *d, int i, int tmp)
+int	unsorted_int(struct s_d *d, int i)
 {
 	int	*intlist;
 	int	*sintlist;

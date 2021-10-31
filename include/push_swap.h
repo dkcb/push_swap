@@ -6,7 +6,7 @@
 /*   By: dkocob <dkocob@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/29 18:25:55 by dkocob        #+#    #+#                 */
-/*   Updated: 2021/10/31 18:51:33 by dkocob        ########   odam.nl         */
+/*   Updated: 2021/10/31 19:00:14 by dkocob        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int				ft_exit(struct s_d *d, int fl);
 int				distance(struct s_node *head, int index, int r, int rr);
 int				distance_range(struct s_node *head, int min, int max);
 int				sorted_int(struct s_d *d, int i, int tmp);
-int				unsorted_int(struct s_d *d, int i, int tmp);
+int				unsorted_int(struct s_d *d, int i);
 int				sort(struct s_d *d);
 int				size_stack(struct s_node **head);
 int				ordered(struct s_node *n);
