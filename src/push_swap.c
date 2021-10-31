@@ -6,16 +6,10 @@
 /*   By: dkocob <dkocob@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/02 18:14:57 by dkocob        #+#    #+#                 */
-/*   Updated: 2021/10/31 18:59:59 by dkocob        ########   odam.nl         */
+/*   Updated: 2021/10/31 19:12:03 by dkocob        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "./stack.c"
-// #include "./ft_digits_ft.c"
-// #include "./operations.c"
-// #include "./algorythm.c"
-// #include "./service.c"
-// #include "./del.c"
 #include "../include/push_swap.h"
 
 int	main(int argc, char **argv)

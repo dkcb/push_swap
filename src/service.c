@@ -6,12 +6,11 @@
 /*   By: dkocob <dkocob@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/19 18:11:37 by dkocob        #+#    #+#                 */
-/*   Updated: 2021/10/31 18:49:49 by dkocob        ########   odam.nl         */
+/*   Updated: 2021/10/31 19:12:08 by dkocob        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-#include <stdio.h>
 
 void	assign(struct s_d *d)
 {
